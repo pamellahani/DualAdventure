@@ -1,15 +1,15 @@
 # DualAdventure
-JAVA Project : 
-Design of an automata-based game engine
-2-player 2D video game implemented completely in Java 
-Software Design Pattern : VMC (View, Model, Controller) 
+JAVA Project :  <br />
+Design of an automata-based game engine in GAL format  <br />
+2-player 2D video game implemented completely in Java  <br />
+Software Design Pattern : VMC (View, Model, Controller)  <br />
 
-How to play : check out PROPOSAL.md
+How to play : check out PROPOSAL.md <br />
 
-CREDITS: 
-Gregory PITITTO
-Pamella HANI
-Louane LESUR 
-Ali FAWAZ
-Asmae ELKANBI 
-Abdelhakim BENHAMED
+CREDITS:  <br />
+Gregory PITITTO <br />
+Pamella HANI <br />
+Louane LESUR  <br />
+Ali FAWAZ <br />
+Asmae ELKANBI  <br />
+Abdelhakim BENHAMED <br />
