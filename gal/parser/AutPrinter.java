@@ -52,10 +52,10 @@ public class AutPrinter implements IVisitor {
 	 * for that state.
 	 */
 
-	private Map<String, State> state_map;
+	private Map<String, AutState> state_map;
 
-	Integer state_id(State state) {
-		State stored_state = state_map.get(state.name);
+	Integer state_id(AutState state) {
+		AutState stored_state = state_map.get(state.name);
 		if (stored_state != null) {
 			return stored_state.id;
 		} else {
@@ -65,7 +65,7 @@ public class AutPrinter implements IVisitor {
 	}
 
 	void print_state_map() {
-		for (State state : state_map.values()) {
+		for (AutState state : state_map.values()) {
 			state_node(state);
 		}
 	}
@@ -74,7 +74,7 @@ public class AutPrinter implements IVisitor {
 
 	public AutPrinter(PrintStream ps, AST bot) {
 		this.ps = ps;
-		this.state_map = new HashMap<String, State>();
+		this.state_map = new HashMap<String, AutState>();
 		Dot.start_graph(this.ps, "bot");
 		bot.accept(this);
 		Dot.end_graph(this.ps, "bot");
@@ -100,7 +100,7 @@ public class AutPrinter implements IVisitor {
 		this.ps.println(Dot.declare_node(node.id, node.toString(), options));
 	}
 
-	void state_node(State state) {
+	void state_node(AutState state) {
 		node(state, "shape=circle, style=filled, fontsize=5");
 	}
 
@@ -108,17 +108,17 @@ public class AutPrinter implements IVisitor {
 		node(automaton, "shape=none, fontname=times, fontsize=12, fontcolor=blue");
 	}
 
-	void transition_node(Transition transition) {
+	void transition_node(AutTransition transition) {
 		node(transition, "shape=box, fontname=comic, fontsize=10");
 	}
 
 	// THE METHODS REQUIRED BY IVisitor
 
-	public Object visit(Category cat) {
+	public Object visit(AutCategory cat) {
 		return null;
 	}
 
-	public Object visit(Direction dir) {
+	public Object visit(AutDirection dir) {
 		return null;
 	}
 
@@ -149,7 +149,7 @@ public class AutPrinter implements IVisitor {
 		return null;
 	}
 
-	public Object visit(State state) {
+	public Object visit(AutState state) {
 		return state_id(state);
 	}
 
@@ -167,13 +167,13 @@ public class AutPrinter implements IVisitor {
 		return null;
 	}
 
-	public void enter(Action action) {}
+	public void enter(AutAction action) {}
 
-	public Object exit(Action action, List<Object> funcalls) {
+	public Object exit(AutAction action, List<Object> funcalls) {
 		return null;
 	}
 
-	public Object visit(Transition transition, Object condition, Object action, Object target) {
+	public Object visit(AutTransition transition, Object condition, Object action, Object target) {
 		transition_node(transition);
 		edge(this.current_source_state, transition.id);
 		edge(transition.id, (Integer) target);

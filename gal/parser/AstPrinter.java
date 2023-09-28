@@ -108,12 +108,12 @@ public class AstPrinter implements IVisitor {
 		return funcall.id;
 	}
 
-	public Object visit(Category terminal) {
+	public Object visit(AutCategory terminal) {
 		keyword(terminal, "Category");
 		return terminal.id;
 	}
 
-	public Object visit(Direction terminal) {
+	public Object visit(AutDirection terminal) {
 		keyword(terminal, "Direction");
 		return terminal.id;
 	}
@@ -131,9 +131,9 @@ public class AstPrinter implements IVisitor {
 		return null;
 	}
 
-	public void enter(Action action) {}
+	public void enter(AutAction action) {}
 	
-	public Object exit(Action action, List<Object> funcalls) {
+	public Object exit(AutAction action, List<Object> funcalls) {
 		non_terminal(action,"Action");
 		subtree(action, (List<Integer>) (Object) funcalls);
 		return action.id;
@@ -145,12 +145,12 @@ public class AstPrinter implements IVisitor {
 		return behaviour.id;
 	}
 
-	public Object visit(State state) {
+	public Object visit(AutState state) {
 		identifier(state,"State");
 		return state.id;
 	}
 	
-	public Object visit(Transition transition, Object condition, Object action, Object target) {
+	public Object visit(AutTransition transition, Object condition, Object action, Object target) {
 		non_terminal(transition, "Transition");
 		edge(transition.id, (Integer) condition);
 		edge(transition.id, (Integer) action);

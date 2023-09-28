@@ -1,0 +1,17 @@
+{
+  "path": "resources/Automate/",
+  "redplayer": "Default/PlayerRed.gal",
+  "blueplayer": "Default/PlayerBlue.gal",
+  "bat": "Default/E_Bat.gal",
+  "arrow": "Default/E_Arrow.gal",
+  "looter": "Default/E_Looter.gal",
+  "snake": "Default/E_Snake.gal",
+  "stone": "Default/E_Stone.gal",
+  "coin": "Default/I_Coin.gal",
+  "bush": "Default/O_Bush.gal",
+  "door": "Default/O_Door.gal",
+  "wall": "Default/O_Wall.gal",
+  "fireball": "Test/Philo.gal",
+  "shuriken": "Test/Philo.gal",
+  "hole": "Default/O_Hole.gal"
+}
